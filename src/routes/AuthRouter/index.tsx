@@ -9,7 +9,6 @@ export function AuthRouter() {
         <Routes>
             <Route path="register" element={<RegisterPage />}></Route>
             <Route path="login" element={<LoginPage />}></Route>
-            <Route path="login" element={<LoginPage />}></Route>
             <Route path="*" element={<NotFoundPage />}></Route>
         </Routes>
     );
