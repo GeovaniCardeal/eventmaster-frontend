@@ -36,7 +36,7 @@ export function LoginPage() {
             // await authService.login(data);
 
             // ✅ Se deu certo → redireciona
-            navigate('/auth/HomePage');
+            navigate('/');
         } catch {
             // ❌ Se login falhar
             setError('root', {
