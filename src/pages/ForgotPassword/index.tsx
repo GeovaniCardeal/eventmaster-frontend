@@ -31,7 +31,7 @@ export function ForgotPasswordPage() {
         <AuthLayout>
             <Form onSubmit={handleSubmit(onSubmit)}>
                 <Form.Header>
-                    <Form.Title>Recuperar Senha</Form.Title>
+                    <Form.Title>Recuperar Senha </Form.Title>
                     <Form.Subtitle>
                         Digite seu e-mail para receber as instruções
                     </Form.Subtitle>
