@@ -5,7 +5,7 @@ import styles from "./styles.module.css";
 
 type ToastInfoProps = {
     message: string;
-    type?: "info" | "warning" | "error" | "sucess";
+    type?: "info" | "warning" | "error" | "success";
     dismissible?: boolean;
 };
 
@@ -29,8 +29,8 @@ export function ToastInfo({
                 return <InfoIcon className={styles.iconWarning} />;
             }
 
-            case "sucess": {
-                return <CheckIcon className={styles.iconSucess} />;
+            case "success": {
+                return <CheckIcon className={styles.iconSuccess} />;
             }
             case "error": {
                 return <CircleXIcon className={styles.iconError} />;

@@ -2,9 +2,9 @@ import toast from "react-hot-toast";
 import { ToastInfo } from "../../components/Toasts/ToastInfo";
 
 export const notify = {
-    sucess: (message: string) =>
-        toast.custom(<ToastInfo message={message} type="sucess" />, {
-            id: "toast-sucess",
+    success: (message: string) =>
+        toast.custom(<ToastInfo message={message} type="success" />, {
+            id: "toast-success",
             duration: 5 * 1000,
         }),
 
@@ -17,14 +17,14 @@ export const notify = {
             }
         ),
 
-    info: (msg: string) =>
-        toast.custom(<ToastInfo message={msg} type="info" />, {
+    info: (message: string) =>
+        toast.custom(<ToastInfo message={message} type="info" />, {
             id: "info-toast",
             duration: 5 * 1000,
         }),
-    warning: (msg: string) =>
+    warning: (message: string) =>
         toast.custom(
-            <ToastInfo message={msg} type="warning" dismissible={false} />,
+            <ToastInfo message={message} type="warning" dismissible={false} />,
             {
                 id: "warning-toast",
                 duration: 5 * 1000,

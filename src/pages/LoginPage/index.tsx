@@ -33,9 +33,9 @@ export function LoginPage() {
     const navigate = useNavigate();
 
     const onSubmit: SubmitHandler<LoginFields> = async (data) => {
-        //TODO: verificação se o usuario realmente existe
-        console.log(data)
-        notify.sucess('Conta logada com sucesso');
+        //TODO: verificação se o usuario realmente existe pela chamada API
+        notify.success('Conta logada');
+        console.log(data); //retirar
         navigate(PageRoutesName.home);
     };
 
