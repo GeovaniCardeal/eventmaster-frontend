@@ -73,10 +73,11 @@ export function Header() {
                             {isUsuario && (
                                 <>
                                     <button
-                                        className={`${styles.itemNavbar} ${styles.clientArea} ${isActive(PageRoutesName.auth.areaCliente) ? styles.active : ''}`}
+                                        className={`${styles.itemNavbar} ${styles.clientArea} ${isActive(PageRoutesName.cliente.areaCliente) ? styles.active : ''}`}
                                         onClick={() => {
                                             navigate(
-                                                PageRoutesName.auth.areaCliente
+                                                PageRoutesName.cliente
+                                                    .areaCliente
                                             );
                                         }}
                                     >
@@ -97,7 +98,7 @@ export function Header() {
                                     className={`${styles.itemNavbar} ${styles.beAnOrganizer} `}
                                     onClick={() => {
                                         navigate(
-                                            PageRoutesName.organizador
+                                            PageRoutesName.cliente
                                                 .sejaOrganizador
                                         );
                                     }}

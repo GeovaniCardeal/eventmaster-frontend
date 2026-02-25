@@ -4,6 +4,8 @@ import { HomePage } from '../../pages/HomePage';
 import { AuthRouter } from '../AuthRouter';
 import { NotFoundPage } from '../../pages/NotFoundPage';
 import { OrganizerRouter } from '../OrganizerRouter';
+import { ClientRouter } from '../ClientRouter';
+import { AdminRouter } from '../AdminRouter';
 
 export function AppRouter() {
     return (
@@ -16,6 +18,8 @@ export function AppRouter() {
 
                 <Route path="/auth/*" element={<AuthRouter />}></Route>
                 <Route path="/organizer/*" element={<OrganizerRouter />} />
+                <Route path="/admin/*" element={<AdminRouter />} />
+                <Route path="/client/*" element={<ClientRouter />} />
 
                 <Route path="*" element={<NotFoundPage />}></Route>
             </Routes>
