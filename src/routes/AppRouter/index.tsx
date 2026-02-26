@@ -6,6 +6,9 @@ import { NotFoundPage } from '../../pages/NotFoundPage';
 import { OrganizerRouter } from '../OrganizerRouter';
 import { ClientRouter } from '../ClientRouter';
 import { AdminRouter } from '../AdminRouter';
+import { ManageOrganizers } from '../../pages/ManageOrganizers';
+import EventDetailsPage from '../../pages/EventDetails/EventDetailsPage';
+import { Checkout } from '../../pages/Checkout';
 
 export function AppRouter() {
     return (
@@ -22,6 +25,12 @@ export function AppRouter() {
                 <Route path="/client/*" element={<ClientRouter />} />
 
                 <Route path="*" element={<NotFoundPage />}></Route>
+
+                <Route path="/gerOrganizadores" element={<ManageOrganizers onBack={() => window.history.back()} />}></Route>
+
+                <Route path="/event-details" element={<EventDetailsPage />}></Route>
+
+                <Route path="/checkout" element={<Checkout />}></Route>
             </Routes>
         </BrowserRouter>
     );
