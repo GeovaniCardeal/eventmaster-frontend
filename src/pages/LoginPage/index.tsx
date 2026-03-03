@@ -9,7 +9,9 @@ import { AuthLayout } from '../../layouts/AuthLayout';
 import { notify } from '../../adapters/toastHotAdapter';
 import { useNavigate } from 'react-router';
 import PageRoutesName from '../../constants/PageRoutesName';
-import { setLocalStorageRole } from '../../utils/localStorageRole';
+import { loginUser } from '../../services/auth/loginUser';
+import type { AxiosError } from 'axios';
+import type { apiResponseError } from '../../server/apiResponse';
 
 const loginSchema = z.object({
     email: z.email('Digite um email válido').min(1, 'Email é obrigatório'),
@@ -34,20 +36,26 @@ export function LoginPage() {
 
     const navigate = useNavigate();
 
-    const onSubmit: SubmitHandler<LoginFields> = async (/* data */) => {
+    const onSubmit: SubmitHandler<LoginFields> = async (data) => {
         try {
-            //const response = await loginUser({ email: data.email, password: data.password });
-            //TODO: Verificar o retorno API e setar localstorageTOKEN e localstorageROLE
+            const response = await loginUser({
+                email: data.email,
+                password: data.password,
+            });
 
-            notify.success('Conta logada');
-            setLocalStorageRole('USUARIO');
+            notify.success(response.message);
             navigate(PageRoutesName.home);
         } catch (err) {
-            console.log('error:', err);
-            setError('root', { message: 'Erro ao tentar logar' });
-            notify.error('Erro ao tentar fazer login.');
+            const error = err as AxiosError<apiResponseError>;
+            const errorMessage =
+                error.response?.data.message || 'Erro ao fazer login';
+
+            notify.error(errorMessage);
+
+            setError('root', {
+                message: errorMessage,
+            });
         }
-        //isso deve ser setado baseado no valor que API retornar quando efetuar chamada
     };
 
     return (
