@@ -1,5 +1,6 @@
 import { Route, Routes } from 'react-router';
 import { ManageOrganizersPage } from '../../pages/ManageOrganizersPage';
+import { NotFoundPage } from '../../pages/NotFoundPage';
 
 export function AdminRouter() {
     return (
@@ -12,7 +13,9 @@ export function AdminRouter() {
                         onBack={() => window.history.back()}
                     />
                 }
-            ></Route>
+            />
+
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     );
 }

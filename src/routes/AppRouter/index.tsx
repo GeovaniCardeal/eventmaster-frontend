@@ -9,38 +9,34 @@ import { AdminRouter } from '../AdminRouter';
 import { ManageOrganizersPage } from '../../pages/ManageOrganizersPage';
 import EventDetailsPage from '../../pages/EventDetailsPage/EventDetailsPage';
 import { CheckoutPage } from '../../pages/CheckoutPage';
+import { DefaultLayout } from '../../layouts/DefaultLayout';
 
 export function AppRouter() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route
-                    path={PageRoutesName.home}
-                    element={<HomePage />}
-                ></Route>
-
-                <Route path="/auth/*" element={<AuthRouter />}></Route>
-                <Route path="/organizer/*" element={<OrganizerRouter />} />
-                <Route path="/admin/*" element={<AdminRouter />} />
-                <Route path="/client/*" element={<ClientRouter />} />
-
-                <Route path="*" element={<NotFoundPage />}></Route>
-
-                <Route
-                    path="/gerOrganizadores"
-                    element={
-                        <ManageOrganizersPage
-                            onBack={() => window.history.back()}
-                        />
-                    }
-                ></Route>
-
-                <Route
-                    path="/event-details"
-                    element={<EventDetailsPage />}
-                ></Route>
-
-                <Route path="/checkout" element={<CheckoutPage />}></Route>
+                {/* Todas as rotas com DefaultLayout */}
+                <Route element={<DefaultLayout />}>
+                    <Route path={PageRoutesName.home} element={<HomePage />} />
+                    <Route path="/auth/*" element={<AuthRouter />} />
+                    <Route path="/organizer/*" element={<OrganizerRouter />} />
+                    <Route path="/admin/*" element={<AdminRouter />} />
+                    <Route path="/client/*" element={<ClientRouter />} />
+                    <Route
+                        path="/gerOrganizadores"
+                        element={
+                            <ManageOrganizersPage
+                                onBack={() => window.history.back()}
+                            />
+                        }
+                    />
+                    <Route
+                        path="/event-details"
+                        element={<EventDetailsPage />}
+                    />
+                    <Route path="/checkout" element={<CheckoutPage />} />
+                    <Route path="*" element={<NotFoundPage />} />
+                </Route>
             </Routes>
         </BrowserRouter>
     );
