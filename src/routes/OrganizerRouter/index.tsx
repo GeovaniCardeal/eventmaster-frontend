@@ -5,7 +5,7 @@ export function OrganizerRouter() {
     return (
         <Routes>
             {/* Rota principal: Apenas o Dashboard */}
-            <Route path="/dashboard" element={<OrganizerDashboard />} />
+            <Route index element={<OrganizerDashboard />} />
         </Routes>
     );
 }

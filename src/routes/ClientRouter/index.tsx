@@ -1,24 +1,24 @@
 import { Route, Routes } from 'react-router';
-import { SejaOrganizadorPage } from '../../pages/SejaOrganizador';
+import { SejaOrganizadorPage } from '../../pages/SejaOrganizadorPage';
 import { AreaClientePage } from '../../pages/AreaCliente';
-import EventDetailsPage from '../../pages/EventDetails/EventDetailsPage';
-import { Checkout } from '../../pages/Checkout';
+import EventDetailsPage from '../../pages/EventDetailsPage/EventDetailsPage';
+import { CheckoutPage } from '../../pages/CheckoutPage';
 
 export function ClientRouter() {
     return (
         <Routes>
             {/* AREA COMUM DO CLIENTE */}
-            <Route path="areaCliente" element={<AreaClientePage />}></Route>
+            <Route path="area-cliente" element={<AreaClientePage />}></Route>
 
             <Route
-                path="eventDetail/:id"
+                path="event-detail/:id"
                 element={<EventDetailsPage />}
             ></Route>
-            <Route path="checkout/:id" element={<Checkout />}></Route>
+            <Route path="checkout/:id" element={<CheckoutPage />}></Route>
 
             {/* ROTA PARA SE TORNAR UM ORGANIZADOR */}
             <Route
-                path="sejaOrganizador"
+                path="seja-organizador"
                 element={<SejaOrganizadorPage />}
             ></Route>
         </Routes>
