@@ -1,16 +1,21 @@
 import { Route, Routes } from 'react-router';
-import { ManageOrganizers } from '../../pages/ManageOrganizers';
+import { ManageOrganizersPage } from '../../pages/ManageOrganizersPage';
+import { NotFoundPage } from '../../pages/NotFoundPage';
 
 export function AdminRouter() {
     return (
         <Routes>
             {/* ROTA PARA MANIPULAR OS ORGANIZADORES */}
             <Route
-                path="getOrganizers"
+                path="get-organizers"
                 element={
-                    <ManageOrganizers onBack={() => window.history.back()} />
+                    <ManageOrganizersPage
+                        onBack={() => window.history.back()}
+                    />
                 }
-            ></Route>
+            />
+
+            <Route path="*" element={<NotFoundPage />} />
         </Routes>
     );
 }
